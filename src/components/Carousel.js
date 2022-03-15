@@ -4,10 +4,12 @@ import utoronto from "../university_of_toronto.jpg";
 import ubc from "../university_of_british_columbia.jpg";
 import uwaterloo from "../university_of_waterloo.jpg";
 
-const ubcImg = "https://kunjdata.s3.amazonaws.com/university_of_british_columbia.jpg";
-const utorImg = "https://kunjdata.s3.amazonaws.com/university_of_british_columbia.jpg";
-const uwtlImg = "https://kunjdata.s3.amazonaws.com/university_of_british_columbia.jpg";
-
+const ubcImg =
+  "https://kunjdata.s3.amazonaws.com/university_of_british_columbia.jpg";
+const utorImg =
+  "https://kunjdata.s3.amazonaws.com/university_of_british_columbia.jpg";
+const uwtlImg =
+  "https://kunjdata.s3.amazonaws.com/university_of_british_columbia.jpg";
 
 const Carousel = () => {
   return (
@@ -38,7 +40,8 @@ const Carousel = () => {
         <div className="carousel-inner">
           <div className="carousel-item active">
             {/* https://talloiresnetwork.tufts.edu/wp-content/uploads/UBC-Vancouver.jpg */}
-            <img src={ubcImg} alt="" />
+            {/* <img src={ubcImg} alt="" /> */}
+            <img src={ubc} alt="" />
             <div className="container">
               <div className="carousel-caption text-start">
                 <h1>University of British Columbia</h1>
@@ -53,7 +56,8 @@ const Carousel = () => {
           </div>
           <div className="carousel-item">
             {/* https://thestrand.ca/wp-content/uploads/2020/10/News-National-Dialogue-and-Action-couresty_of_University_of_Toronto-scaled.jpg */}
-            <img src={utorImg} alt="" />
+            {/* <img src={utorImg} alt="" /> */}
+            <img src={utoronto} alt="" />
             <div className="container">
               <div className="carousel-caption text-start">
                 <h1>University of Toronto</h1>
@@ -69,7 +73,8 @@ const Carousel = () => {
 
           <div className="carousel-item">
             {/* https://www.alumicor.com/wp-content/uploads/University-of-Waterloo-2-1700x1275.jpg */}
-            <img src={uwtlImg} alt="" />
+            {/* <img src={uwtlImg} alt="" /> */}
+            <img src={uwaterloo} alt="" />
             <div className="container">
               <div className="carousel-caption text-start">
                 <h1>University of Waterloo</h1>
