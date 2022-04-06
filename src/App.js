@@ -1,8 +1,8 @@
-import Home from "./components/Home";
+import AppRoutes from "./routes/AppRoutes";
 function App() {
   return (
     <div className="App">
-      <Home></Home>
+      <AppRoutes></AppRoutes>
     </div>
   );
 }

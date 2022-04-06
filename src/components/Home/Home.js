@@ -1,16 +1,14 @@
 import React from "react";
 import Carousel from "./Carousel";
-import Footer from "./Footer";
-import Header from "./Header";
 import OurServices from "./OurServices";
+import Chatbot from "../Chatbot/Chatbot";
 
 const Home = () => {
   return (
     <div>
-      <Header></Header>
       <Carousel></Carousel>
+      <Chatbot />
       <OurServices></OurServices>
-      <Footer></Footer>
     </div>
   );
 };

@@ -1,17 +1,27 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import "./Carousel.css";
-import utoronto from "../university_of_toronto.jpg";
-import ubc from "../university_of_british_columbia.jpg";
-import uwaterloo from "../university_of_waterloo.jpg";
-
-const ubcImg =
-  "https://kunjdata.s3.amazonaws.com/university_of_british_columbia.jpg";
-const utorImg =
-  "https://kunjdata.s3.amazonaws.com/university_of_british_columbia.jpg";
-const uwtlImg =
-  "https://kunjdata.s3.amazonaws.com/university_of_british_columbia.jpg";
+import axios from "axios";
+import ubc from "../../assets/university_of_british_columbia.jpg";
+import CarouselUniversity from "./CarouselUniversity";
+import { useNavigate } from "react-router-dom";
 
 const Carousel = () => {
+  const [universities, setUniversities] = useState({});
+  const navigate = useNavigate();
+  const handleView = () => {
+    navigate(`/university/7`);
+  };
+  const url = `https://codzo5uokf.execute-api.us-east-1.amazonaws.com/dev/universities`;
+  useEffect(() => {
+    axios
+      .get(url)
+      .then((response) => {
+        setUniversities(response.data.body);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div>
       <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
@@ -38,49 +48,21 @@ const Carousel = () => {
           ></button>
         </div>
         <div className="carousel-inner">
+          {universities
+            ? universities.length > 0
+              ? universities.map((university) => {
+                  return <CarouselUniversity university={university} />;
+                })
+              : "No results found."
+            : "Fetching universities."}
           <div className="carousel-item active">
-            {/* https://talloiresnetwork.tufts.edu/wp-content/uploads/UBC-Vancouver.jpg */}
-            {/* <img src={ubcImg} alt="" /> */}
             <img src={ubc} alt="" />
             <div className="container">
               <div className="carousel-caption text-start">
                 <h1>University of British Columbia</h1>
                 <p></p>
                 <p>
-                  <a className="btn btn-lg btn-dark" href="#">
-                    Curious?
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="carousel-item">
-            {/* https://thestrand.ca/wp-content/uploads/2020/10/News-National-Dialogue-and-Action-couresty_of_University_of_Toronto-scaled.jpg */}
-            {/* <img src={utorImg} alt="" /> */}
-            <img src={utoronto} alt="" />
-            <div className="container">
-              <div className="carousel-caption text-start">
-                <h1>University of Toronto</h1>
-                <p></p>
-                <p>
-                  <a className="btn btn-lg btn-dark" href="#">
-                    Curious?
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="carousel-item">
-            {/* https://www.alumicor.com/wp-content/uploads/University-of-Waterloo-2-1700x1275.jpg */}
-            {/* <img src={uwtlImg} alt="" /> */}
-            <img src={uwaterloo} alt="" />
-            <div className="container">
-              <div className="carousel-caption text-start">
-                <h1>University of Waterloo</h1>
-                <p></p>
-                <p>
-                  <a className="btn btn-lg btn-dark" href="#">
+                  <a className="btn btn-lg btn-dark" onClick={handleView}>
                     Curious?
                   </a>
                 </p>

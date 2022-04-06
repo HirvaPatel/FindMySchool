@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -23,44 +24,33 @@ const Header = () => {
 
             <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
               <li>
-                <a href="#" className="nav-link px-2 text-secondary">
+                <a href="/" className="nav-link px-2 text-white">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="nav-link px-2 text-white">
+                <a href="/universities" className="nav-link px-2 text-white">
                   Universities
                 </a>
               </li>
               <li>
-                <a href="#" className="nav-link px-2 text-white">
+                <a href="/advising" className="nav-link px-2 text-white">
                   Advising
-                </a>
-              </li>
-              <li>
-                <a href="#" className="nav-link px-2 text-white">
-                  Community
-                </a>
-              </li>
-              <li>
-                <a href="#" className="nav-link px-2 text-white">
-                  FAQs
-                </a>
-              </li>
-              <li>
-                <a href="#" className="nav-link px-2 text-white">
-                  About
                 </a>
               </li>
             </ul>
 
             <div className="text-end">
-              <button type="button" className="btn btn-outline-light me-2">
-                Login
-              </button>
-              <button type="button" className="btn btn-success">
-                Sign-up
-              </button>
+              <Link to="/Login">
+                <button type="button" className="btn btn-outline-light me-2">
+                  Login
+                </button>
+              </Link>
+              <Link to="/SignUp">
+                <button type="button" className="btn btn-success">
+                  Sign-up
+                </button>
+              </Link>
             </div>
           </div>
         </header>
